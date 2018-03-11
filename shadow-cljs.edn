@@ -1,0 +1,19 @@
+;; shadow-cljs configuration
+{:dependencies
+ [[rum          "0.11.1"]
+  [cljsjs/react "16.2.0-3"]]
+ :source-paths ["src"]
+ :builds       {:dev {:output-dir "resources/public/js"
+                      :asset-path "/js"
+                      :target     :browser
+                      :modules    {:main {:entries [ether.vis.core]}}
+                      :devtools   {:after-load ether.vis.core/reload!
+                                   :http-root  "resources/public"
+                                   :http-port  8080
+                                   :watch-dir  "public"}}
+
+                :app {:output-dir "target/"
+                      :asset-path "."
+                      :target     :browser
+                      :modules    {:main {:entries [ether.vis.core]}}}}
+ :open-file-command ["emacsclient" "-n" ["+%s:%s" :line :column] :file]}
