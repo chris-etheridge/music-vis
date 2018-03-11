@@ -4,3 +4,4 @@ target
 .nrepl-port
 resources/public/js
 .DS_Store
+.shadow-cljs
